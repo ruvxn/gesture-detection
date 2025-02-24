@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # Load trained model from gesture_detection.py
-model = tf.keras.models.load_model("gesture_model_v2.h5")
+model = tf.keras.models.load_model("gesture_model_v3.h5")
 
 # Load MediaPipe Hands model and drawing utilities - these will be used for hand detection and visualization
 mp_hands = mp.solutions.hands
@@ -62,10 +62,11 @@ while cap.isOpened():
                 # Force reclassification on every frame - overcomes flickering issues 
                 predictions = model.predict(hand_img, verbose=0)
                 predicted_class = np.argmax(predictions)
+                confidence = predictions[0][predicted_class] # confidence score for the predicted class 
                 
                 # Class mapping for display
                 class_labels = {v: k for k, v in {"love": 0, "peace": 1, "thumbsdown": 2, "thumbsup": 3}.items()}
-                predicted_label = class_labels[predicted_class]
+                predicted_label = f"{class_labels[predicted_class]} ({confidence * 100:.2f}%)" 
 
                 # Draw bounding box and label on the frame 
                 cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
