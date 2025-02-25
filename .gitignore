@@ -149,10 +149,14 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Exclude image and video files
+# Exclude image, video, and model files
 *.jpg
 *.jpeg
 *.png
 *.gif
 *.mov
 *.mp4
+*.h5
+
+# macOS system files
+.DS_Store
