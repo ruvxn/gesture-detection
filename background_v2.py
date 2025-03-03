@@ -1,4 +1,5 @@
-import cv2
+# Copyright (c) 2024 Ruveen Jayasinghe
+# Licensed under the Apache License, Version 2.0
 import numpy as np
 import mediapipe as mp
 import tensorflow as tf
