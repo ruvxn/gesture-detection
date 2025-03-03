@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 import time
 
 # Load Hand Gesture Model V3 updated in gesture_detection.py
-model = tf.keras.models.load_model("gesture_model_v3.h5")
+model = tf.keras.models.load_model("gesture_model_v5.h5")
 
 # Initialize MediaPipe Hands and Drawing Utilities - these will be used for hand detection and visualization
 mp_hands = mp.solutions.hands
@@ -85,7 +85,7 @@ while cap.isOpened(): # loop to capture frames from the webcam
                     class_labels = {0: "love", 1: "peace", 2: "thumbsdown", 3: "thumbsup"}
                     predicted_label = f"{class_labels[predicted_class]} ({confidence * 100:.2f}%)"
 
-                    if confidence > 0.95 and not video_playing: # check if the confidence score is greater than 95% and no video is playing
+                    if confidence > 0.99 and not video_playing: # check if the confidence score is greater than 95% and no video is playing
                         selected_video = class_labels[predicted_class]
                         current_video = video_captures[selected_video]
                         current_video.set(cv2.CAP_PROP_POS_FRAMES, 0)  
