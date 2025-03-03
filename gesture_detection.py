@@ -1,3 +1,5 @@
+# Copyright (c) 2024 Ruveen Jayasinghe
+# Licensed under the Apache License, Version 2.0
 # -*- coding: utf-8 -*-
 """gesture_detection.ipynb
 
