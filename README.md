@@ -76,7 +76,7 @@ python background_v2.py
 
 ---
 
-## 📌 Notes & Recommendations
+##  Notes & Recommendations
 - Ensure **good lighting** for best gesture recognition.
 - The **gesture collection process** should have a **consistent background**.
 - The **model improves with more diverse training data**.
